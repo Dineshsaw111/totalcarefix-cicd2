@@ -9,9 +9,9 @@ jobs:
       run:
         working-directory: flyway
     env:
-      FLYWAY_USER: ${{ secrets.username }}
-      FLYWAY_PASSWORD: ${{ secrets.password }}
-      FLYWAY_URL: ${{ secrets.dburl }}
+      FLYWAY_USER: ${ username }
+      FLYWAY_PASSWORD: ${ password }
+      FLYWAY_URL: ${ dburl }
       FLYWAY_CLEAN_DISABLED: false
       FLYWAY_LOCATIONS: "filesystem:./totalcarefix/"
       flyway_environment: "totalcarefixdb"
