@@ -24,9 +24,9 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y default-jre
-          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/10.7.2/flyway-commandline-10.7.2-linux-x64.tar.gz | tar xvz
-          sudo ln -s $(pwd)/flyway-10.7.2/flyway /usr/local/bin/flyway
- 
+          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/10.8.1/flyway-commandline-10.8.1-linux-x64.tar.gz | tar xvz
+          sudo ln -s $(pwd)/flyway-10.8.1/flyway /usr/local/bin/flyway
+
       - name: Flyway repair
         run: |
           flyway repair
