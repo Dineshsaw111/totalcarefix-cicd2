@@ -9,8 +9,8 @@ jobs:
       run:
         working-directory: flyway
     env:
-      FLYWAY_USER: ${ username }
-      FLYWAY_PASSWORD: ${ password }
+      FLYWAY_USER: ${{ secrets.USERNAME }} # Replace with your actual username secret
+      FLYWAY_PASSWORD: ${{ secrets.PASSWORD }} # Replace with your actual password secret
       FLYWAY_URL: jdbc:mysql://totalcarefix-instance.cannp7gu3dzs.eu-west-1.rds.amazonaws.com:3306/totalcarefixdb
       FLYWAY_CLEAN_DISABLED: false
       FLYWAY_LOCATIONS: "filesystem:./totalcarefix/"
