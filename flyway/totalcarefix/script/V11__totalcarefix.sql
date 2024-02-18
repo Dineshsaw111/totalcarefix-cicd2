@@ -99,7 +99,7 @@ CREATE TABLE booking
 
   
 -- Inserting into ROLES table
-INSERT INTO role (role_name) VALUES 
+INSERT INTO roles (role_name) VALUES 
   ('Admin'),
   ('Technician'),
   ('User');
