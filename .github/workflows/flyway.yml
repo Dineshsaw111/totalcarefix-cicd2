@@ -1,37 +1,39 @@
 name: flyway
+ 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
+ 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: flyway
+ 
     env:
       FLYWAY_USER: admin
       FLYWAY_PASSWORD: 12345678
       FLYWAY_URL: jdbc:mysql://totalcarefix-instance.cannp7gu3dzs.eu-west-1.rds.amazonaws.com:3306/totalcarefixdb
       FLYWAY_CLEAN_DISABLED: false
       FLYWAY_LOCATIONS: "filesystem:./totalcarefix/"
-      flyway_environment: "totalcarefixdb"
       FLYWAY_CONFIG_FILES: "filesystem:./totalcarefix/flyway.toml"
-    
+ 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup Flyway CLI
         run: |
           sudo apt update
           sudo apt install -y default-jre
-          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/10.8.1/flyway-commandline-10.8.1-linux-x64.tar.gz | tar xvz
-          sudo ln -s $(pwd)/flyway-10.8.1/flyway /usr/local/bin/flyway
-
-      - name: Flyway Clean and Baseline
+          wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/10.7.2/flyway-commandline-10.7.2-linux-x64.tar.gz | tar xvz
+          sudo ln -s $(pwd)/flyway-10.7.2/flyway /usr/local/bin/flyway
+ 
+      - name: Flyway repair
         run: |
-          flyway clean
-          flyway baseline
-
+          flyway repair
       - name: Flyway Migrate 
-        run: flyway migrate 
+        run: |
+          flyway migrate \
+             -url="${FLYWAY_URL}" \
+            -user="${FLYWAY_USER}" \
+            -password="${FLYWAY_PASSWORD}" \
+            -configFiles="${FLYWAY_CONFIG_FILES}"
