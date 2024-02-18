@@ -196,22 +196,19 @@ AS
 
 DELIMITER //
 
-CREATE PROCEDURE INSERT_TECH(
-  IN fname VARCHAR(100),
-  IN Lname VARCHAR(100),
-  IN Email VARCHAR(100),
-  IN dob DATE,
-  IN mob VARCHAR(15),
-  IN myskill VARCHAR(20)
-)
+CREATE FUNCTION GetTotalBookingsForTech(techID INT)
+RETURNS INT
+READS SQL DATA
 BEGIN
-  DECLARE roleID INT;
-  SELECT role_id INTO roleID FROM roles WHERE role_name = myskill;
-  INSERT INTO USERS (first_name, last_name, email, date_of_birth, mobile_number, role_id)
-  VALUES (fname, Lname, Email, dob, mob, roleID);
+  DECLARE totalBookings INT;
+  SELECT COUNT(tech_id) INTO totalBookings
+  FROM BOOKING
+  WHERE tech_id = techID;
+  RETURN totalBookings;
 END //
 
 DELIMITER ;
+
 
 
 
