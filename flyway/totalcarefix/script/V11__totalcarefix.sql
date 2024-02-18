@@ -99,14 +99,14 @@ CREATE TABLE booking
 
   
 -- Inserting into ROLES table
-INSERT INTO ROLES (role_name) VALUES 
+INSERT INTO role (role_name) VALUES 
   ('Admin'),
   ('Technician'),
   ('User');
   
 
 -- Inserting into USERS table
-INSERT INTO USERS (first_name, last_name, email, date_of_birth, mobile_number, role_id) VALUES
+INSERT INTO users (first_name, last_name, email, date_of_birth, mobile_number, role_id) VALUES
   ('John', 'Doe', 'john.doe@example.com', '1990-01-15', '1234567890', 1),
   ('Jane', 'Smith', 'jane.smith@example.com', '1985-05-22', '9876543210', 2),
   ('Alice', 'Johnson', 'alice.johnson@example.com', '1995-08-10', '5555555555', 3),
@@ -116,14 +116,14 @@ INSERT INTO USERS (first_name, last_name, email, date_of_birth, mobile_number, r
 
   
   -- Inserting into STATUS table
-INSERT INTO STATUS (status_name) VALUES 
+INSERT INTO status (status_name) VALUES 
   ('appointment'),
   ('booked'),
   ('Cancelled'),
   ('Completed');
 
 -- Inserting into SKILLS table
-INSERT INTO SKILLS (skill_name) VALUES 
+INSERT INTO skills (skill_name) VALUES 
   ('Electrician'),
   ('Carpenter'),
   ('Locksmith'),
@@ -143,7 +143,7 @@ INSERT INTO technicians (tech_id, skill_id) VALUES
   (5, 1);
   
   -- Inserting into ADDRESSES table
-INSERT INTO ADDRESSES (user_id, house_number, street, society, city, state, pincode) VALUES
+INSERT INTO addresses (user_id, house_number, street, society, city, state, pincode) VALUES
   (1, 123, 'Main St', 'Green Valley', 'Cityville', 'State1', 12345),
   (2, 456, 'Broadway', 'Sunset Hills', 'Townsville', 'State2', 54321),
   (3, 789, 'Oak Lane', 'Maple Grove', 'Villagetown', 'State3', 67890),
@@ -153,7 +153,7 @@ INSERT INTO ADDRESSES (user_id, house_number, street, society, city, state, pinc
 
 
 -- Inserting into BOOKING table
-INSERT INTO BOOKING (user_id, tech_id, status_id, address_id, message, service_date, expectted_time) VALUES
+INSERT INTO booking (user_id, tech_id, status_id, address_id, message, service_date, expectted_time) VALUES
   (1, 1, 3, 1, 'Need help with programming', '2024-03-01', '14:00:00'),
   (2, 2, 1, 2, 'Networking issue', '2024-03-02', '10:30:00'),
   (3, 3, 2, 3, 'Electrical repair', '2024-03-03', '12:00:00'),
@@ -162,7 +162,7 @@ INSERT INTO BOOKING (user_id, tech_id, status_id, address_id, message, service_d
   
   
 -- Inserting into FEEDBACKS table
-INSERT INTO FEEDBACKS (user_id, tech_id, message, rating) VALUES
+INSERT INTO feedbacks (user_id, tech_id, message, rating) VALUES
   (1, 1, 'Great service!', 5),
   (2, 2, 'Very knowledgeable technician.', 4),
   (3, 3, 'Prompt and efficient.', 5),
