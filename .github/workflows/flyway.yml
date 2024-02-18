@@ -17,7 +17,7 @@ jobs:
       FLYWAY_CLEAN_DISABLED: false
       FLYWAY_LOCATIONS: "filesystem:./totalcarefix/"
       flyway_environment: "totalcarefixdb"
-      FLYWAY_CONFIG_FILES: "filesystem:./totalcarefix/flyway.conf"
+      FLYWAY_CONFIG_FILES: "filesystem:./totalcarefix/flyway.toml"
     
     steps:
       - name: Checkout code
