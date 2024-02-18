@@ -1,3 +1,12 @@
+
+
+CREATE TABLE roles
+  (
+     role_id   INT auto_increment,
+     role_name VARCHAR(100) NOT NULL,
+     CONSTRAINT roles_pk PRIMARY KEY(role_id)
+  );
+
 CREATE TABLE users
   (
      user_id       INT auto_increment,
@@ -10,13 +19,6 @@ CREATE TABLE users
      CONSTRAINT user_fk PRIMARY KEY( user_id),
      CONSTRAINT role_fk_users FOREIGN KEY (role_id) REFERENCES roles(role_id) ON
      UPDATE CASCADE
-  );
-
-CREATE TABLE roles
-  (
-     role_id   INT auto_increment,
-     role_name VARCHAR(100) NOT NULL,
-     CONSTRAINT roles_pk PRIMARY KEY(role_id)
   );
 
 CREATE TABLE status
@@ -95,8 +97,6 @@ CREATE TABLE booking
 
 
 
-
-
   
 -- Inserting into ROLES table
 INSERT INTO ROLES (role_name) VALUES 
@@ -104,6 +104,16 @@ INSERT INTO ROLES (role_name) VALUES
   ('Technician'),
   ('User');
   
+
+-- Inserting into USERS table
+INSERT INTO USERS (first_name, last_name, email, date_of_birth, mobile_number, role_id) VALUES
+  ('John', 'Doe', 'john.doe@example.com', '1990-01-15', '1234567890', 1),
+  ('Jane', 'Smith', 'jane.smith@example.com', '1985-05-22', '9876543210', 2),
+  ('Alice', 'Johnson', 'alice.johnson@example.com', '1995-08-10', '5555555555', 3),
+  ('Bob', 'Williams', 'bob.williams@example.com', '1980-03-03', '9999999999', 2),
+  ('Charlie', 'Brown', 'charlie.brown@example.com', '1992-11-30', '1111111111', 3);
+
+
   
   -- Inserting into STATUS table
 INSERT INTO STATUS (status_name) VALUES 
@@ -123,14 +133,6 @@ INSERT INTO SKILLS (skill_name) VALUES
   
   
   
--- Inserting into USERS table
-INSERT INTO USERS (first_name, last_name, email, date_of_birth, mobile_number, role_id) VALUES
-  ('John', 'Doe', 'john.doe@example.com', '1990-01-15', '1234567890', 1),
-  ('Jane', 'Smith', 'jane.smith@example.com', '1985-05-22', '9876543210', 2),
-  ('Alice', 'Johnson', 'alice.johnson@example.com', '1995-08-10', '5555555555', 3),
-  ('Bob', 'Williams', 'bob.williams@example.com', '1980-03-03', '9999999999', 2),
-  ('Charlie', 'Brown', 'charlie.brown@example.com', '1992-11-30', '1111111111', 3);
-
 
 -- Inserting into technicians table
 INSERT INTO technicians (tech_id, skill_id) VALUES
