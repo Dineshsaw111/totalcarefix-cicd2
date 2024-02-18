@@ -9,10 +9,10 @@ jobs:
       run:
         working-directory: flyway
     env:
-      FLYWAY_USER: ${{secrets.USERNAME}}
-      FLYWAY_PASSWORD: ${{secrets.PASSWORD}}
+      FLYWAY_USER: admin
+      FLYWAY_PASSWORD: 12345678
       # Make sure that we get this from the aws
-      FLYWAY_URL: ${{secrets.DB_URL}}
+      FLYWAY_URL: jdbc:mysql://totalcarefix-instance.cannp7gu3dzs.eu-west-1.rds.amazonaws.com:3306/totalcarefixdb
       # FLYWAY_SCHEMAS=
       FLYWAY_CLEAN_DISABLED: false
       FLYWAY_LOCATIONS: "filesystem:./totalcarefix/"
