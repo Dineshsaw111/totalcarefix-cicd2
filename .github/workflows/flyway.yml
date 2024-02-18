@@ -11,7 +11,7 @@ jobs:
     env:
       FLYWAY_USER: ${ username }
       FLYWAY_PASSWORD: ${ password }
-      FLYWAY_URL: ${ dburl }
+      FLYWAY_URL: jdbc:mysql://totalcarefix-instance.cannp7gu3dzs.eu-west-1.rds.amazonaws.com:3306/totalcarefixdb
       FLYWAY_CLEAN_DISABLED: false
       FLYWAY_LOCATIONS: "filesystem:./totalcarefix/"
       flyway_environment: "totalcarefixdb"
