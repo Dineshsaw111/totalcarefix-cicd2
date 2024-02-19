@@ -1,5 +1,98 @@
-# TotalCareFix Database Creation
+# TotalCareFix Application
+ ## Application Overview
+   ### TotalCareFix is a platform that connects users with skilled technicians for various services such as plumbing, electrical work, carpentry, and more. The application allows users to book technicians for specific services, providing a seamless and efficient way to address home service needs.
 
+ ## User Roles
+  ### 1.	User:
+   #### •	Can browse and search for technicians based on skills.
+   #### •	Can book a technician for a specific service.
+   #### •	Can provide feedback and ratings for completed services.
+
+   ### 2. Technician:
+   #### •	Registers skills.
+   #### •	Receives booking requests from users.
+   #### •	Performs services and receives feedback from users.
+
+   ### 2. Admin:
+   #### •	Can view the dashboard of Showing Booking details.
+   #### •	Can observer users and techincian activity.
+
+  ## Booking Process
+   ### 1.	User Requests Service:
+   #### •	Users can browse through available technicians based on skills.
+   #### •	Users can book a technician for a specific service by providing details like service date, time, and address.
+
+   ### 2.	Technician Accepts Booking:
+   #### •	Technicians receive booking requests and can accept or decline them based on their availability.
+
+   ### 3.	Service Execution:
+   #### •	Technicians perform the requested service on the scheduled date and time.
+
+   ### 4.	Feedback and Rating:
+   #### •	After service completion, users can provide feedback and ratings for the technician's performance.
+  
+   
+ ## TotalCareFix Database Creation
+ 
+ 
+  ## Database Design Documentation
+  ### Database Schema Overview
+   #### Roles Table
+   ##### •	role_id: Primary key, auto-incremented unique identifier for roles.
+   ##### •	role_name: Name of the role (e.g., User, Technician).
+    
+   #### Status Table
+   ##### •  status_id: Primary key, auto-incremented unique identifier for status.
+   ##### •  status_name: Name of the status (e.g., Appointment, Booked, Cancelled, Completed).
+
+   #### Skills Table
+   ##### • 	skill_id: Primary key, auto-incremented unique identifier for skills.
+   ##### • 	skill_name: Name of the skill (e.g., Electrician, Carpenter, Plumber).
+
+     
+   #### Users Table
+   ##### • 	user_id: Primary key, auto-incremented unique identifier for users.
+   ##### • 	first_name: First name of the user.
+   ##### • 	last_name: last name of the user.
+   ##### •  email: Email address of the user (unique).
+   ##### • 	date_of_birth: Date of birth of the user.
+   ##### • 	mobile_number: Mobile number of the user.
+   ##### • 	role_id: Foreign key referencing the Roles table.
+
+
+   #### Technicians Table
+   ##### • 	tech_id: Primary key, unique identifier for technicians.
+   ##### • 	skill_id: Foreign key referencing the Skills table.
+
+   #### Addresses Table
+   ##### • 	address_id: Primary key, auto-incremented unique identifier for addresses.
+   ##### • 	user_id: Foreign key referencing the Users table.
+   ##### • 	house_number: House number of the address.
+   ##### •  street: Street name of the address.
+   ##### • 	society: Society of the address.
+   ##### • 	city: City of the address.
+   ##### • 	state: State of the address.
+   ##### • 	pincode: Pincode of the address.
+   
+   #### Feedbacks Table
+   ##### • 	feedback_id: Primary key, auto-incremented unique identifier for feedbacks.
+   ##### • 	user_id: Foreign key referencing the Users table.
+   ##### • 	tech_id: Foreign key referencing the Technicians table.
+   ##### • 	message: Feedback message.
+   ##### • 	rating: Rating given in the feedback.
+
+        
+   #### Booking Table
+   ##### • 	book_id: Primary key, auto-incremented unique identifier for bookings.
+   ##### • 	user_id: Foreign key referencing the Users table.
+   ##### • 	tech_id: Foreign key referencing the Technicians table.
+   ##### • 	status_id: Foreign key referencing the Status table.
+   ##### • 	address_id: Foreign key referencing the Addresses table.
+   ##### • 	message: Booking message.
+   ##### • 	service_date: Date of the booked service.
+   ##### • 	expected_time: Expected time for the service.
+   
+ 
 # Database query
 
 For reference https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/script/V11__totalcarefix.sql
