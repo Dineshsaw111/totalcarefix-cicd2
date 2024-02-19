@@ -131,7 +131,7 @@ Terraform is a tool for building, changing, and versioning infrastructure safely
  
 For reference visit https://spacelift.io/blog/how-to-install-terraform
  
-## Liquibase Installation
+## Flyway Installation
  
 Flyway is an open-source database-independent library for tracking, managing, and applying database changes. Follow these steps to install Liquibase on your local machine:Flyway is an open-source database migration tool that helps you version control your database schema and apply changes to it over time. Here are the general steps to install Flyway:
  
@@ -142,7 +142,10 @@ Flyway is an open-source database-independent library for tracking, managing, an
 5. Verify Installation: flyway -v.
 6. Database Configuration: Before using Flyway, you need to configure it for your specific database. Create a configuration file named flyway.conf or use command-line options.
 
- Example flyway.conf file for MySQL:
+ Example flyway.conf file for MySQL: (https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/flyway.toml)
+
+ Our Flyway ci/cd : (flyway yamlci/cd  https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/.github/workflows/flyway.yml)
+
  
 For reference visit https://flywaydb.org/documentation.
  
@@ -151,7 +154,8 @@ For reference visit https://flywaydb.org/documentation.
 1. Create infrastructure for this project ( you can use any name for directory and filename )
  
     - Create a directory - Terraform
-    - Inside that create hybrid-haven.tf file to specify AWS resources like VPC, subnet, security groups, and RDS instance according to your requirements.
+    - Inside that create rds.tf file to specify AWS resources like VPC, subnet, security groups, and RDS instance according to your requirements.
+    - for example: visit ( https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/terraform/rds.tf)
  
 2. Navigate to the Terraform directory
  
