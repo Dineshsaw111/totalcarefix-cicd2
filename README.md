@@ -130,25 +130,8 @@ Terraform is a tool for building, changing, and versioning infrastructure safely
 3. Verify the installation by running terraform version in your terminal. You should see the Terraform version printed to the console.
  
 For reference visit https://spacelift.io/blog/how-to-install-terraform
- 
-## Flyway Installation
- 
-Flyway is an open-source database-independent library for tracking, managing, and applying database changes. Follow these steps to install Liquibase on your local machine:Flyway is an open-source database migration tool that helps you version control your database schema and apply changes to it over time. Here are the general steps to install Flyway:
- 
-1. Visit the official Flyway website at https://flywaydb.org/.
-2. Navigate to the "Downloads" section.
-3. Download the version of Flyway that corresponds to your operating system (Windows, macOS, or Linux).
-4. Flyway can be run from any directory, but you may want to add its location to your system's PATH environment variable for convenience.
-5. Verify Installation: flyway -v.
-6. Database Configuration: Before using Flyway, you need to configure it for your specific database. Create a configuration file named flyway.conf or use command-line options.
 
- Example flyway.conf file for MySQL: (https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/flyway.toml)
 
- Our Flyway ci/cd : (flyway yamlci/cd  https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/.github/workflows/flyway.yml)
-
- 
-For reference visit https://flywaydb.org/documentation.
- 
 ## Terraform Configuration
  
 1. Create infrastructure for this project ( you can use any name for directory and filename )
@@ -170,6 +153,25 @@ For reference visit https://flywaydb.org/documentation.
 ```
 terraform apply
 ```
+ 
+## Flyway Installation
+ 
+Flyway is an open-source database-independent library for tracking, managing, and applying database changes. Flyway is an open-source database migration tool that helps you version control your database schema and apply changes to it over time. Here are the general steps to install Flyway:
+ 
+1. Visit the official Flyway website at https://flywaydb.org/.
+2. Navigate to the "Downloads" section.
+3. Download the version of Flyway that corresponds to your operating system (Windows, macOS, or Linux).
+4. Flyway can be run from any directory, but you may want to add its location to your system's PATH environment variable for convenience.
+5. Verify Installation: flyway -v.
+6. Database Configuration: Before using Flyway, you need to configure it for your specific database. Create a configuration file named flyway.conf or use command-line options.
+
+ Example flyway.conf file for MySQL: (https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/flyway.toml)
+
+ Our Flyway ci/cd : (flyway yamlci/cd  https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/.github/workflows/flyway.yml)
+
+ 
+For reference visit https://flywaydb.org/documentation.
+ 
 ### TotalCareFix ER
  
 ![image](https://github.com/Dineshsaw111/databaseScript/blob/main/ER.png)
