@@ -95,7 +95,16 @@
  
 # Database query
 
-For reference https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/script/V11__totalcarefix.sql
+For reference (https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/script/V11__totalcarefix.sql)
+ 
+  ## Functions.
+   ### 1. GetTotalBookingsForTech(arg1);  Provides total bookig for a techID.
+
+  ## Procedures.
+   ### 1. CALL INSERT_TECH({firstname}, {laststname},{email}, {date_of_birth}, {mobile_number}, {role_name});  To insert into table roles and fetch role_id from there and insert into users table.
+
+   ## Views.
+   ### 1. users_details_view; view users details.  
 
 ## AWS Account Setup
  
@@ -124,13 +133,18 @@ For reference visit https://spacelift.io/blog/how-to-install-terraform
  
 ## Liquibase Installation
  
-Liquibase is an open-source database-independent library for tracking, managing, and applying database changes. Follow these steps to install Liquibase on your local machine:
+Flyway is an open-source database-independent library for tracking, managing, and applying database changes. Follow these steps to install Liquibase on your local machine:Flyway is an open-source database migration tool that helps you version control your database schema and apply changes to it over time. Here are the general steps to install Flyway:
  
-1. Download the Liquibase command-line tool from the https://www.liquibase.org/DOWNLOAD.
-2. Extract the downloaded archive to a directory included in your system's PATH.
-3. Verify the installation by running liquibase --version in your termin al. You should see the Liquibase version printed to the console.
+1. Visit the official Flyway website at https://flywaydb.org/.
+2. Navigate to the "Downloads" section.
+3. Download the version of Flyway that corresponds to your operating system (Windows, macOS, or Linux).
+4. Flyway can be run from any directory, but you may want to add its location to your system's PATH environment variable for convenience.
+5. Verify Installation: flyway -v.
+6. Database Configuration: Before using Flyway, you need to configure it for your specific database. Create a configuration file named flyway.conf or use command-line options.
+
+ Example flyway.conf file for MySQL:
  
-For reference visit https://docs.liquibase.com/start/install/liquibase-windows.html
+For reference visit https://flywaydb.org/documentation.
  
 ## Terraform Configuration
  
