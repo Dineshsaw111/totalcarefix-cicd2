@@ -39,7 +39,7 @@
   ### Database Schema Overview
    #### Roles Table
    ##### •	role_id: Primary key, auto-incremented unique identifier for roles.
-   ##### •	role_name: Name of the role (e.g., User, Technician).
+   ##### •	role_name: Name of the role ( User, Technician and Admin).
     
    #### Status Table
    ##### •  status_id: Primary key, auto-incremented unique identifier for status.
