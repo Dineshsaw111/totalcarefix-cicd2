@@ -1,5 +1,3 @@
-
-
 CREATE TABLE roles
   (
      role_id   INT auto_increment,
