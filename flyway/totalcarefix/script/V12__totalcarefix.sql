@@ -1,3 +1,16 @@
+DROP TABLE booking;
+DROP TABLE feedbacks;
+DROP TABLE addresses;
+DROP TABLE cities;
+DROP TABLE states;
+DROP TABLE technicians;
+DROP TABLE skills;
+DROP TABLE status;
+DROP TABLE contacts;
+DROP TABLE users;
+DROP TABLE users_status;
+DROP TABLE roles;
+
 CREATE TABLE roles (
     role_id INT auto_increment,
     name VARCHAR(20) NOT NULL,
