@@ -6,6 +6,11 @@ DROP TABLE skills;
 DROP TABLE status;
 DROP TABLE users;
 DROP TABLE roles;
+DROP VIEW IF EXISTS users_details_view;
+DROP PROCEDURE IF EXISTS INSERT_TECH;
+DROP FUNCTION IF EXISTS GetTotalBookingsForTech;
+
+
 
 CREATE TABLE roles (
     role_id INT auto_increment,
