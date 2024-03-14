@@ -95,7 +95,7 @@
  
 # Database query
 
-For reference (https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/script/V11__totalcarefix.sql)
+For reference (https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/flyway/totalcarefix/script/V12__totalcarefix.sql)
  
   ## Functions.
    ### 1. GetTotalBookingsForTech(arg1);  Provides total bookig for a techID.
