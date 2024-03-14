@@ -174,6 +174,6 @@ For reference visit https://flywaydb.org/documentation.
  
 ### TotalCareFix ER
  
-![image](https://github.com/Dineshsaw111/databaseScript/blob/main/ER.png)
+![image](https://github.com/Dineshsaw111/totalcarefix-cicd2/blob/main/ER3.png)
 has context menu
 Compose
