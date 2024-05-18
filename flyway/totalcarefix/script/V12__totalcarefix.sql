@@ -208,8 +208,8 @@ INSERT INTO booking (booker_id, tech_id, status_id, address_id,skill_id, message
 
 -- Inserting into FEEDBACKS table
 INSERT INTO feedbacks (user_id,booking_id, tech_id, message, rating) VALUES
-  (1, 2,4, 'Great service!', 5),
-  (2, 1,2, 'Very knowledgeable technician.', 4),
+  (1, 2, 4, 'Great service!', 5),
+  (2, 1, 2, 'Very knowledgeable technician.', 4),
 
   
   
