@@ -116,6 +116,7 @@ CREATE TABLE booking (
     tech_id INT,
     status_id INT NOT NULL,
     address_id INT NOT NULL,
+    skill_id INT NOT NULL,
     message VARCHAR(500) NOT NULL,
     service_date TIMESTAMP NOT NULL,
     expected_time TIME NOT NULL,
@@ -124,7 +125,8 @@ CREATE TABLE booking (
     CONSTRAINT users_fk_booking FOREIGN KEY (booker_id) REFERENCES users(user_id) ON UPDATE CASCADE,
     CONSTRAINT technicians_fk_booking FOREIGN KEY (tech_id) REFERENCES technicians(tech_id) ON UPDATE CASCADE,
     CONSTRAINT status_fk_booking FOREIGN KEY (status_id) REFERENCES status(status_id) ON UPDATE CASCADE,
-    CONSTRAINT addresses_fk_booking FOREIGN KEY (address_id) REFERENCES addresses(address_id) ON UPDATE CASCADE
+    CONSTRAINT addresses_fk_booking FOREIGN KEY (address_id) REFERENCES addresses(address_id) ON UPDATE CASCADE,
+    CONSTRAINT addresses_fk_skill FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON UPDATE CASCADE
 );
 
 
