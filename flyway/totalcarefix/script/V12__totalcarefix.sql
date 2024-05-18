@@ -95,20 +95,7 @@ CREATE TABLE addresses (
     CONSTRAINT cities_fk_addresses FOREIGN KEY (city_id) REFERENCES cities(city_id) ON UPDATE CASCADE
 );
  
-CREATE TABLE feedbacks (
-    feedback_id INT auto_increment,
-    user_id INT NOT NULL,
-    tech_id INT NOT NULL,
-    message VARCHAR(100) NOT NULL,
-    rating TINYINT UNSIGNED NOT NULL CHECK(
-        rating <= 5
-        AND rating >= 1
-    ),
-    creation_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT feedbacks_pk PRIMARY KEY(feedback_id),
-    CONSTRAINT technicians_fk_feedbacks FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE,
-    CONSTRAINT addresses_fk_feedbacks FOREIGN KEY (tech_id) REFERENCES technicians(tech_id) ON UPDATE CASCADE
-);
+
  
 CREATE TABLE booking (
     booking_id INT auto_increment,
@@ -129,6 +116,22 @@ CREATE TABLE booking (
     CONSTRAINT addresses_fk_skill FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON UPDATE CASCADE
 );
 
+CREATE TABLE feedbacks (
+    feedback_id INT auto_increment,
+    booking_id INT NOT NULL,
+    user_id INT NOT NULL,
+    tech_id INT NOT NULL,
+    message VARCHAR(100) NOT NULL,
+    rating TINYINT UNSIGNED NOT NULL CHECK(
+        rating <= 5
+        AND rating >= 1
+    ),
+    creation_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT feedbacks_pk PRIMARY KEY(feedback_id),
+    CONSTRAINT technicians_fk_feedbacks FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE,
+    CONSTRAINT addresses_fk_feedbacks FOREIGN KEY (tech_id) REFERENCES technicians(tech_id) ON UPDATE CASCADE
+    CONSTRAINT booking_fk_feedbacks FOREIGN KEY (booking_id) REFERENCES booking(booking_id) ON UPDATE CASCADE
+);
 
 -- Inserting into ROLES table
 INSERT INTO roles (name) VALUES 
@@ -199,18 +202,15 @@ INSERT INTO addresses (user_id, house_number, street, society, locality, city_id
 -- Inserting into BOOKING table
 INSERT INTO booking (booker_id, tech_id, status_id, address_id,skill_id, message, service_date, expected_time) VALUES
   (1, 2, 3, 1,1,'Need help with programming', '2024-03-01', '14:00:00'),
-  (2, 4, 1, 2,2, 'Networking issue', '2024-03-02', '10:30:00'),
+  (2, 4, 4, 2,2, 'Networking issue', '2024-03-02', '10:30:00'),
   (3, 2, 2, 3,1, 'Electrical repair', '2024-03-03', '12:00:00'),
-  (4, 4, 4, 4,2, 'Plumbing emergency', '2024-03-04', '15:30:00'),
   (5, 2, 3, 5,1, 'Carpentry work', '2024-03-05', '09:00:00');
 
 -- Inserting into FEEDBACKS table
-INSERT INTO feedbacks (user_id, tech_id, message, rating) VALUES
-  (1, 2, 'Great service!', 5),
-  (2, 4, 'Very knowledgeable technician.', 4),
-  (3, 2, 'Prompt and efficient.', 5),
-  (4, 4, 'Friendly and helpful.', 4),
-  (5, 2, 'Excellent workmanship.', 5);
+INSERT INTO feedbacks (user_id,booking_id, tech_id, message, rating) VALUES
+  (1, 2,4, 'Great service!', 5),
+  (2, 1,2, 'Very knowledgeable technician.', 4),
+
   
   
   
