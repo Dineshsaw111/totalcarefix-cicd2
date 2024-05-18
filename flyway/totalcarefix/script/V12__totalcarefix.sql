@@ -188,12 +188,12 @@ INSERT INTO addresses (user_id, house_number, street, society, locality, city_id
   (5, '202', 'Elm Avenue', 'Riverdale', 'Townburg', 2, '22222');
 
 -- Inserting into BOOKING table
-INSERT INTO booking (booker_id, tech_id, status_id, address_id, message, service_date, expected_time) VALUES
-  (1, 2, 3, 1, 'Need help with programming', '2024-03-01', '14:00:00'),
-  (2, 4, 1, 2, 'Networking issue', '2024-03-02', '10:30:00'),
-  (3, 2, 2, 3, 'Electrical repair', '2024-03-03', '12:00:00'),
-  (4, 4, 4, 4, 'Plumbing emergency', '2024-03-04', '15:30:00'),
-  (5, 2, 3, 5, 'Carpentry work', '2024-03-05', '09:00:00');
+INSERT INTO booking (booker_id, tech_id, status_id, address_id,skill_id, message, service_date, expected_time) VALUES
+  (1, 2, 3, 1,1,'Need help with programming', '2024-03-01', '14:00:00'),
+  (2, 4, 1, 2,2, 'Networking issue', '2024-03-02', '10:30:00'),
+  (3, 2, 2, 3,1, 'Electrical repair', '2024-03-03', '12:00:00'),
+  (4, 4, 4, 4,2, 'Plumbing emergency', '2024-03-04', '15:30:00'),
+  (5, 2, 3, 5,1, 'Carpentry work', '2024-03-05', '09:00:00');
 
 -- Inserting into FEEDBACKS table
 INSERT INTO feedbacks (user_id, tech_id, message, rating) VALUES
