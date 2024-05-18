@@ -6,6 +6,7 @@ DROP TABLE skills;
 DROP TABLE status;
 DROP TABLE users;
 DROP TABLE roles;
+DROP TABLE cities;
 DROP VIEW IF EXISTS users_details_view;
 DROP PROCEDURE IF EXISTS INSERT_TECH;
 DROP FUNCTION IF EXISTS GetTotalBookingsForTech;
@@ -176,8 +177,17 @@ INSERT INTO states (name) VALUES
 
 -- Inserting into CITIES table
 INSERT INTO cities (state_id, name) VALUES
-  (1, 'surat'),
-  (2, 'udaipur');
+    (1, 'surat'),
+    (1, 'barodra'),
+    (1, 'gandhinagar'),
+    (1, 'rajkot'),
+    (1, 'ahmedabad'),
+    (2, 'udaipur'),
+    (2, 'jaipur'),
+    (2, 'bikaner'),
+    (2, 'kota'),
+    (2, 'jodpur');  
+
   
 -- Inserting into ADDRESSES table
 INSERT INTO addresses (user_id, house_number, street, society, locality, city_id, pincode) VALUES
