@@ -129,7 +129,7 @@ CREATE TABLE feedbacks (
     creation_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT feedbacks_pk PRIMARY KEY(feedback_id),
     CONSTRAINT technicians_fk_feedbacks FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE,
-    CONSTRAINT addresses_fk_feedbacks FOREIGN KEY (tech_id) REFERENCES technicians(tech_id) ON UPDATE CASCADE
+    CONSTRAINT addresses_fk_feedbacks FOREIGN KEY (tech_id) REFERENCES technicians(tech_id) ON UPDATE CASCADE,
     CONSTRAINT booking_fk_feedbacks FOREIGN KEY (booking_id) REFERENCES booking(booking_id) ON UPDATE CASCADE
 );
 
