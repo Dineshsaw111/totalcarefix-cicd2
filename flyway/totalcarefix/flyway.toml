@@ -1,5 +1,5 @@
 [flyway]
-  url = "jdbc:mysql://totalcarefix-instance.cannp7gu3dzs.eu-west-1.rds.amazonaws.com:3306/totalcarefixdb"
-  user = "admin"
-  password = "12345678"
+  url = ${{ secrets.DBURL }}
+  user = ${{ secrets.USERNAME }}
+  password = ${{ secrets.PASSWORD }}
   locations = "filesystem:script"

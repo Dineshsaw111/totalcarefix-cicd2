@@ -9,8 +9,8 @@ jobs:
       run:
         working-directory: flyway
     env:
-      FLYWAY_USER: ${{ secrets.USERNAME }} # Replace with your actual username secret
-      FLYWAY_PASSWORD: ${{ secrets.PASSWORD }} # Replace with your actual password secret
+      FLYWAY_USER: ${{ secrets.USERNAME }}
+      FLYWAY_PASSWORD: ${{ secrets.PASSWORD }}
       FLYWAY_URL: ${{ secrets.DBURL }}
       FLYWAY_CLEAN_DISABLED: false
       FLYWAY_LOCATIONS: "filesystem:./totalcarefix/"
@@ -27,11 +27,6 @@ jobs:
           sudo apt install -y default-jre
           wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/10.8.1/flyway-commandline-10.8.1-linux-x64.tar.gz | tar xvz
           sudo ln -s $(pwd)/flyway-10.8.1/flyway /usr/local/bin/flyway
-
-      - name: Flyway Clean and Baseline
-        run: |
-          flyway clean
-          flyway baseline
 
       - name: Flyway Migrate 
         run: flyway migrate 
