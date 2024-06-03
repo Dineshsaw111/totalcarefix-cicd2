@@ -1,11 +1,9 @@
-# configured aws provider with proper credentials
 provider "aws" {
   region  = "eu-west-1"
   profile = "default"
 }
 
 
-# create default vpc if one does not exit
 resource "aws_default_vpc" "default_vpc" {
 
   tags = {
@@ -14,21 +12,17 @@ resource "aws_default_vpc" "default_vpc" {
 }
 
 
-# use data source to get all avalablility zones in region
 data "aws_availability_zones" "available_zones" {}
 
 
-# create a default subnet in the first az if one does not exit
 resource "aws_default_subnet" "subnet_az1" {
   availability_zone = data.aws_availability_zones.available_zones.names[0]
 }
 
-# create a default subnet in the second az if one does not exit
 resource "aws_default_subnet" "subnet_az2" {
   availability_zone = data.aws_availability_zones.available_zones.names[1]
 }
 
-# create security group for the web server
 resource "aws_security_group" "webserver_security_group" {
   name        = "webserver security group"
   description = "enable http access on port 80"
@@ -54,7 +48,6 @@ resource "aws_security_group" "webserver_security_group" {
   }
 }
 
-# create security group for the database
 resource "aws_security_group" "database_security_group" {
   name        = "database security group"
   description = "enable mysql/aurora access on port 3306"
@@ -81,7 +74,6 @@ resource "aws_security_group" "database_security_group" {
 }
 
 
-# create the subnet group for the rds instance
 resource "aws_db_subnet_group" "database_subnet_group" {
   name         = "database-subnets"
   subnet_ids   = [aws_default_subnet.subnet_az1.id, aws_default_subnet.subnet_az2.id]
@@ -98,8 +90,8 @@ resource "aws_db_instance" "db_instance" {
   engine_version          = "8.0.31"
   multi_az                = false
   identifier              = "totalcarefix-instance"
-  username                = "admin"
-  password                = "12345678"
+  username                = ${{ secrets.USERNAME }}
+  password                = ${{ secrets.PASSWORD }}
   instance_class          = "db.t2.micro"
   allocated_storage       = 200
   db_subnet_group_name    = aws_db_subnet_group.database_subnet_group.name
